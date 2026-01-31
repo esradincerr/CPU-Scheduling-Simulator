@@ -19,24 +19,24 @@ pip install matplotlib
 The project is organized in a modular structure:
 
 scheduler_project/
-├── scheduler.py        *** Main script for single algorithm simulation
-├── compare.py          *** Script to compare all algorithms and generate graphs
-├── processes.txt       *** Input data file
-├── README.md           *** Project documentation
-├── avg_waiting.png     *** Graph output from compare.py
-├── avg_turnaround.png  *** Graph output from compare.py
+├── scheduler.py        # Main script for single algorithm simulation
+├── compare.py          # Script to compare all algorithms and generate graphs
+├── processes.txt       # Input data file
+├── README.md           # Project documentation
+├── avg_waiting.png     # Graph output from compare.py
+├── avg_turnaround.png  # Graph output from compare.py
 ├── utils/
-│   ├── parser.py       *** Handles file parsing and Process class definition
-│   ├── gantt.py        *** Renders the ASCII Gantt chart
-│   └── statistics.py   *** Handles calculation and printing of statistics tables
+│   ├── parser.py       # Handles file parsing and Process class definition
+│   ├── gantt.py        # Renders the ASCII Gantt chart
+│   └── statistics.py   # Handles calculation and printing of statistics tables
 └── algorithms/
-    ├── fcfs.py         *** First-Come First-Served implementation
-    ├── sjf.py          *** Shortest Job First implementation
-    ├── srtf.py         *** Shortest Remaining Time First implementation
-    ├── rr.py           *** Round Robin implementation
-    ├── priority_np.py  *** Non-Preemptive Priority implementation
-    └── priority_p.py   *** Preemptive Priority implementation
-
+    ├── fcfs.py         # First-Come First-Served implementation
+    ├── sjf.py          # Shortest Job First implementation
+    ├── srtf.py         # Shortest Remaining Time First implementation
+    ├── rr.py           # Round Robin implementation
+    ├── priority_np.py  # Non-Preemptive Priority implementation
+    └── priority_p.py   # Preemptive Priority implementation
+    
 ## 4. How to Run the Simulator
 
 A. Running a Specific Algorithm:
@@ -115,5 +115,6 @@ Based on the simulations performed on the test data:
     Response Time: Round Robin provided the best (lowest) average response time. By giving every process a small slice of CPU time quickly, it ensures no process waits too long to start, making it ideal for interactive systems.
 
     Context Switches: Preemptive algorithms like RR, SRTF, and PRIO_P resulted in a significantly higher number of context switches compared to non-preemptive ones (FCFS, SJF). While preemption improves responsiveness, the high context switch count indicates a higher system overhead.
+
 
     Surprising Behavior: In FCFS, if a long process arrives first (like P1 with burst 8), it delays all subsequent shorter processes significantly (Convoy Effect). In contrast, SJF rearranged the execution order completely to P1 -> P2 -> P4 -> P3, drastically reducing the waiting time for P2 and P4.
